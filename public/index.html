@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Student Logs</title>
+
+  <meta charset="UTF-8" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="font-raj text-black bg-primary-500 ">
+  <div class="">
+    <div class="bg-white dark:bg-silver">
+      <img src="./images/UVUMonogramGreen-0005.png" width="250" height="auto">
+    </div>
+    <form class="flex flex-col">
+      <div id="topDiv" class="px-12 py-2 text-white bg-primary-500">
+        <label for="course">Select Course</label><br />
+        <select aria-label="Select Course" id="course" name="course" data-cy="course_select" class="rounded text-black px-2 py-1">
+          <option selected value="">Choose Courses</option>
+        </select><br />
+
+        <div id="uvuIdDiv" class="py-2 hidden">
+          <label for="uvuId">UVU ID</label><br />
+
+          <input type="text" placeholder="10234567" id="uvuId" name="uvuId" data-cy="uvuId_input" maxlength="8" class="text-black rounded px-1" />
+          <div id="errorsDiv"></div>
+        </div>
+      </div>
+
+      <div id="botDiv" class="px-12 py-2 mb-5 bg-uvuGray-500 text-black dark:bg-silver">
+        <h3 id="uvuIdDisplay" data-cy="uvuIdDisplay" class="text-xl">
+          No Logs Selected. Logs will show below.
+        </h3>
+        <ul data-cy="logs" id="logs"></ul>
+        <br />
+        <label class="text-xl py-2">New Log</label><br />
+        <textarea id="txtArea" style="height: 75px" aria-label="add log textarea"
+          data-cy="log_textarea" class="p-2 text-black"></textarea><br />
+        <button id="submitBtn" type="submit" data-cy="add_log_btn" onsubmit="addLog()"
+          class="rounded border-2 px-4 py-2 cursor-not-allowed bg-white transistion ease-in-out hover:bg-primary-700 hover:text-white duration-300" disabled>
+          Add Log
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="px-12 py-2 text-white">
+    <span class="text-lg font-bold">Dark Mode Preference</span>
+    <div class="flex flex-col">
+      <div>
+        <input type="radio" id="lightCheck" name="pref" value="light" class="cursor-pointer">
+        <label for="lightCheck" class="cursor-pointer">Light</label>
+      </div>
+      <div>
+        <input type="radio" id="darkCheck" name="pref" value="dark" class="cursor-pointer">
+        <label for="darkCheck" class="cursor-pointer">Dark</label>
+      </div>
+    </div>
+  </div>
+  <script src="./jQL.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>
